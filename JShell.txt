@@ -1,0 +1,27 @@
+
+jshell> List<Integer>number=List.of(12,546,4552,428,23,54,16,56,656,5)
+number ==> [12, 546, 4552, 428, 23, 54, 16, 56, 656, 5]
+
+jshell> number.stream().reduce(0,(x,y)->x+y)
+$3 ==> 6348
+
+jshell> number.stream().reduce(0,(x,y)->x)
+$4 ==> 0
+
+jshell> number.stream().reduce(0,(x,y)->y)
+$5 ==> 5
+
+jshell> number.stream().reduce(0,(x,y)->x>y?x:y)
+$6 ==> 4552
+
+jshell> number.stream().reduce(Integer.MIN_VALUE,(x,y)->x>y?x:y)
+$7 ==> 4552
+
+jshell> number.stream().reduce(Integer.MIN_VALUE,(x,y)->x>y?y:x)
+$8 ==> -2147483648
+
+jshell> number.stream().reduce(Integer.MAX_VALUE,(x,y)->x>y?y:x)
+$9 ==> 5
+
+jshell> number.stream().reduce(Integer.MAX_VALUE,(x,y)->x>y?x:y)
+$10 ==> 2147483647
